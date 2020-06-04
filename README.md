@@ -21,6 +21,10 @@ $ npm run generate
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 
+## 教程
+
+https://www.nuxtjs.cn
+
 ## ts bug 临时解决方案
 
 Interface 'NuxtApp' incorrectly extends interface 'Vue'
@@ -33,3 +37,16 @@ compilerOptions :{"skipLibCheck": true}
 
 https://segmentfault.com/a/1190000014839730
 
+https://www.nuxtjs.cn/guide/routing
+
+## Nuxt配置sass或者less
+
+https://www.jianshu.com/p/7a1d11c7d895
+
+## vue typescript支持
+
+https://cn.vuejs.org/v2/guide/typescript.html
+
+## 使用nuxt封装的axios
+
+https://axios.nuxtjs.org/

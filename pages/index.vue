@@ -24,50 +24,72 @@
           GitHub
         </a>
       </div>
+      <nuxt-link to="/home">
+        home
+      </nuxt-link>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue, { VNode, PropType } from 'vue'
 import Logo from '~/components/Logo.vue'
+
+interface ComplexMessage {
+  title: string,
+  okMessage: string,
+  cancelMessage: string
+}
 
 export default Vue.extend({
   components: {
     Logo
+  },
+  props: {
+    name: {
+      type: String,
+      default: ''
+    },
+    success: {
+      type: String,
+      default: ''
+    },
+    callback: {
+      type: Function as PropType<() => void>,
+      default: null
+    },
+    message: {
+      type: Object as PropType<ComplexMessage>,
+      validator (message: ComplexMessage) {
+        return !!message.title
+      },
+      default: null
+    }
+  },
+  data () {
+    return {
+      msg: 'Hello'
+    }
+  },
+  computed: {
+    // 需要标注
+    greeting (): string {
+      return this.greet() + '!'
+    }
+  },
+  methods: {
+    // 需要标注有 `this` 参与运算的返回值类型
+    greet (): string {
+      return this.msg + ' world'
+    }
+  },
+  // `createElement` 是可推导的，但是 `render` 需要返回值类型
+  render (createElement): VNode {
+    return createElement('div', this.greeting)
   }
 })
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
+<style lang="scss" scoped>
+  @import "../pageStyle/index.scss";
 </style>

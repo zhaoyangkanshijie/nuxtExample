@@ -8,17 +8,30 @@ import {
   sanitizeComponent
 } from './utils'
 
+import NuxtError from '..\\layouts\\error.vue'
 import NuxtLoading from './components/nuxt-loading.vue'
 
 import '..\\node_modules\\element-ui\\lib\\theme-chalk\\index.css'
 
+import _2d21d098 from '..\\layouts\\blog.vue'
 import _6f6c098b from '..\\layouts\\default.vue'
 
-const layouts = { "_default": sanitizeComponent(_6f6c098b) }
+const layouts = { "_blog": sanitizeComponent(_2d21d098),"_default": sanitizeComponent(_6f6c098b) }
 
 export default {
   render (h, props) {
     const loadingEl = h('NuxtLoading', { ref: 'loading' })
+
+    if (this.nuxt.err && NuxtError) {
+      const errorLayout = (NuxtError.options || NuxtError).layout
+      if (errorLayout) {
+        this.setLayout(
+          typeof errorLayout === 'function'
+            ? errorLayout.call(NuxtError, this.context)
+            : errorLayout
+        )
+      }
+    }
 
     const layoutEl = h(this.layout || 'nuxt')
     const templateEl = h('div', {

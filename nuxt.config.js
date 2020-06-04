@@ -35,7 +35,7 @@ module.exports = {
   ** Nuxt.js dev-modules
   */
   buildModules: [
-    '@nuxt/typescript-build',
+    '@nuxt/typescript-build'
   ],
   /*
   ** Nuxt.js modules
@@ -43,7 +43,12 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/style-resources'
   ],
+  styleResources: {
+    scss: './assets/variables.scss'
+    // sass: ...
+  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
