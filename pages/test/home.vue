@@ -6,6 +6,9 @@
     <div v-for="item in list" :key="item.id">
       {{ item.title }}
     </div>
+    <button @click="name='aaaaaaaaa'">
+      点击
+    </button>
     <nuxt-link to="/">
       首页
     </nuxt-link>
@@ -48,5 +51,5 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-  @import "../pageStyle/index.scss";
+
 </style>
