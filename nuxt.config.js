@@ -29,7 +29,8 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/element-ui'
+    '@/plugins/element-ui',
+    '@/plugins/lib-components'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -54,7 +55,19 @@ module.exports = {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+    // proxy: true,
+    // prefix: '/api/',
+    // credentials: true
   },
+  // proxy: {
+  //   '/api/': { 
+  //     target: 'https://h5api.zhefengle.cn',//这个网站是开源的可以请求到数据的
+  //     pathRewrite: {
+  //        '^/api/': '/',
+  //        changeOrigin: true
+  //     }    
+  //   }
+  // },
   /*
   ** Build configuration
   */

@@ -27,6 +27,9 @@
       <nuxt-link to="/home">
         home
       </nuxt-link>
+      <ul>
+        <li v-for="item in items" :key="item">{{item}}</li>
+      </ul>
     </div>
   </div>
 </template>
@@ -68,7 +71,8 @@ export default Vue.extend({
   },
   data () {
     return {
-      msg: 'Hello'
+      msg: 'Hello',
+      items: ['']
     }
   },
   computed: {
@@ -82,6 +86,41 @@ export default Vue.extend({
     greet (): string {
       return this.msg + ' world'
     }
+  },
+  beforeCreate(){
+    console.log('beforeCreate')
+  },
+  created(){
+    console.log('created')
+    this.$axios.get("https://training.tp-link.com.cn/api/values").then(res=>{
+        console.log(res.data)
+        let data = res.data;
+        let show = [];
+        for(let key in data){
+          show.push(key);
+          show.push(data[key]);
+        }
+        console.log(show);
+        this.items = show;
+    })
+  },
+  beforeMount(){
+    console.log('beforeMount')
+  },
+  mounted(){
+    console.log('mounted')
+  },
+  beforeUpdate(){
+    console.log('beforeUpdate')
+  },
+  updated() {
+    console.log('updated')
+  },
+  beforeDestroy() {
+    console.log('beforeDestroy')
+  },
+  destroyed(){
+    console.log('destroyed')
   },
   // `createElement` 是可推导的，但是 `render` 需要返回值类型
   render (createElement): VNode {

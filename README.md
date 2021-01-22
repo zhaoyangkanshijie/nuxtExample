@@ -50,3 +50,18 @@ https://cn.vuejs.org/v2/guide/typescript.html
 ## 使用nuxt封装的axios
 
 https://axios.nuxtjs.org/
+
+https://www.cnblogs.com/yddzyy/p/13269887.html
+
+## 全局组件
+
+https://segmentfault.com/a/1190000020452519?utm_source=tag-newest
+
+## 生命周期
+
+https://blog.csdn.net/webjhh/article/details/94460595
+
+## 项目部署
+
+https://segmentfault.com/a/1190000020452519?utm_source=tag-newest
+
