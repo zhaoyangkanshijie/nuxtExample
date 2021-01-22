@@ -30,6 +30,7 @@
       <ul>
         <li v-for="item in items" :key="item">{{item}}</li>
       </ul>
+      <button @click="arrayChange()">test</button>
     </div>
   </div>
 </template>
@@ -85,6 +86,17 @@ export default Vue.extend({
     // 需要标注有 `this` 参与运算的返回值类型
     greet (): string {
       return this.msg + ' world'
+    },
+    arrayChange(): void {
+      //可以更新
+      //this.items = ['a','b','c'];
+      // this.items = ['a1','a2','b'].filter((value,index)=>{
+      //   return value.indexOf('a') != -1;
+      // });
+      //this.items = this.items.slice(1)
+      //this.items = this.items.concat(['a1','b1','c1']);
+      //不可以更新
+      //this.items[1] = 'b';
     }
   },
   beforeCreate(){
