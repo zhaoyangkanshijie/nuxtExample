@@ -65,3 +65,16 @@ https://blog.csdn.net/webjhh/article/details/94460595
 
 https://segmentfault.com/a/1190000020452519?utm_source=tag-newest
 
+https://blog.csdn.net/sophie_u/article/details/86690053
+
+生产环境文件:.nuxt node_modules server/ static/ middleware/(如在/server/index.js有引用) nuxt.config.js package.json
+
+npm run build
+
+npm run start 成功后改用pm2
+
+pm2 start npm --name "nuxtExample" -- run start
+
+## Classic mode for store/ is deprecated and will be removed in Nuxt 3.
+
+https://www.bootschool.net/article/5c50895df60a310b0e6f33ee/nuxt.js-error-classic-mode-for-store-is-deprecated

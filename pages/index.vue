@@ -32,6 +32,7 @@
         test
       </button>
       <p>{{ result }}</p>
+      <p>{{ $store.state.token }}</p>
     </div>
   </div>
 </template>
@@ -72,19 +73,21 @@ export default Vue.extend({
     }
   },
   async fetch () {
-    const response = await this.$axios.get('https://training.tp-link.com.cn/api/values')
-    const fetchResult = response.data
-    const show = []
-    for (const key in fetchResult) {
-      show.push(key)
-      show.push(fetchResult[key])
-    }
+    // const response = await this.$axios.get('https://training.tp-link.com.cn/api/values')
+    // const fetchResult = response.data
+    // const show = []
+    // for (const key in fetchResult) {
+    //   show.push(key)
+    //   show.push(fetchResult[key])
+    // }
+    const show = ['1', '2', '3', '4', '5', '6']
     this.items = show
   },
   async asyncData ({ app }) {
     // called every time before loading the component
-    const response = await app.$axios.get('https://training.tp-link.com.cn/api/values')
-    const result = response.data
+    // const response = await app.$axios.get('https://training.tp-link.com.cn/api/values')
+    // const result = response.data
+    const result = 'test'
     return { result }
   },
   data () {
