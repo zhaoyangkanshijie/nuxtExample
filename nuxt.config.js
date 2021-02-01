@@ -1,4 +1,3 @@
-
 module.exports = {
   mode: 'universal',
   /*
@@ -60,17 +59,26 @@ module.exports = {
     // credentials: true
   },
   // proxy: {
-  //   '/api/': { 
+  //   '/api/': {
   //     target: 'https://h5api.zhefengle.cn',//这个网站是开源的可以请求到数据的
   //     pathRewrite: {
   //        '^/api/': '/',
   //        changeOrigin: true
-  //     }    
+  //     }
   //   }
   // },
   /*
   ** Build configuration
   */
+  /*
+   ** 服务器端中间件--针对首页做缓存
+   */
+  serverMiddleware: [
+    {
+      path: '/',
+      handler: '~/utils/server-middleware/pageCache.js'
+    }
+  ],
   build: {
     transpile: [/^element-ui/],
     /*

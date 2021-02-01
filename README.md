@@ -78,3 +78,17 @@ pm2 start npm --name "nuxtExample" -- run start
 ## Classic mode for store/ is deprecated and will be removed in Nuxt 3.
 
 https://www.bootschool.net/article/5c50895df60a310b0e6f33ee/nuxt.js-error-classic-mode-for-store-is-deprecated
+
+## Build failing with Error "cross-env: Permission denied"
+
+https://github.com/travis-ci/travis-ci/issues/7044
+
+## 缓存
+
+https://www.jianshu.com/p/421a3cf22415
+
+https://my.oschina.net/u/158675/blog/4304453
+
+## 前端渲染中间件
+
+https://blog.csdn.net/awseda/article/details/106227729

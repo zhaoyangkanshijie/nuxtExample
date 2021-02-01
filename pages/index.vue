@@ -48,6 +48,7 @@ interface ComplexMessage {
 }
 
 export default Vue.extend({
+  middleware: 'stats',
   components: {
     Logo
   },
