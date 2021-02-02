@@ -71,11 +71,11 @@ module.exports = {
   ** Build configuration
   */
   /*
-   ** 服务器端中间件--针对首页做缓存
+   ** 服务器端中间件--做缓存
    */
   serverMiddleware: [
     {
-      path: '/',
+      path: '*',
       handler: '~/utils/server-middleware/pageCache.js'
     }
   ],

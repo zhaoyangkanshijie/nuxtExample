@@ -67,7 +67,7 @@ https://segmentfault.com/a/1190000020452519?utm_source=tag-newest
 
 https://blog.csdn.net/sophie_u/article/details/86690053
 
-生产环境文件:.nuxt node_modules server/ static/ middleware/(如在/server/index.js有引用) nuxt.config.js package.json
+生产环境文件:.nuxt node_modules server/ static/(看是否有资源文件引用，assets同理) middleware/(如在/server/index.js有引用) nuxt.config.js package.json
 
 npm run build
 

@@ -8,8 +8,8 @@ export const cachePage = new LRU({
 export default function (req, res, next) {
   const url = req._parsedOriginalUrl
   const pathname = url.pathname
+  console.log('pageCache', pathname)
   if (process.env.NODE_ENV !== 'development') {
-    console.log('pageCache', pathname, cachePage)
     const existsHtml = cachePage.get(pathname)
     if (existsHtml) {
     //  如果没有Content-Type:text/html 的 header，gtmetrix网站无法做测评
