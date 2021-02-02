@@ -92,3 +92,7 @@ https://my.oschina.net/u/158675/blog/4304453
 ## 前端渲染中间件
 
 https://blog.csdn.net/awseda/article/details/106227729
+
+## webpack优化和配置
+
+https://zh.nuxtjs.org/docs/2.x/configuration-glossary/configuration-build

@@ -33,6 +33,12 @@
       </button>
       <p>{{ result }}</p>
       <p>{{ $store.state.token }}</p>
+      <el-radio v-model="radio" label="1">
+        备选项
+      </el-radio>
+      <el-radio v-model="radio" label="2">
+        备选项
+      </el-radio>
     </div>
   </div>
 </template>
@@ -96,7 +102,8 @@ export default Vue.extend({
       msg: 'Hello',
       items: [''],
       timer: 0,
-      result: ''
+      result: '',
+      radio: '1'
     }
   },
   computed: {

@@ -1,5 +1,14 @@
+const LRU = require('lru-cache')
 module.exports = {
   mode: 'universal',
+  render: {
+    bundleRenderer: {
+      cache: LRU({
+        max: 1000, // 最大的缓存个数
+        maxAge: 1000 * 60 * 15 // 缓存15分钟
+      })
+    }
+  },
   /*
   ** Headers of the page
   */
@@ -80,11 +89,30 @@ module.exports = {
     }
   ],
   build: {
-    transpile: [/^element-ui/],
+    transpile: [/^element-ui/], // babel编译指定模块
+    // analyze: true,
+    optimization: {
+      minimize: true, // tree-shaking
+      splitChunks: {
+        chunks: 'all'
+      } // 分包
+    },
+    parallel: true, // 多线程build，实验属性
+    sourceMap: false, // 索源文件
+    collapseBooleanAttributes: true,
+    decodeEntities: true,
+    minifyCSS: true,
+    minifyJS: true,
+    processConditionalComments: true,
+    removeEmptyAttributes: true,
+    removeRedundantAttributes: true,
+    trimCustomFragments: true,
+    useShortDoctype: true,
     /*
     ** You can extend webpack config here
     */
     extend (config, ctx) {
+
     }
   }
 }
