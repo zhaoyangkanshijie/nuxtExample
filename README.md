@@ -96,3 +96,8 @@ https://blog.csdn.net/awseda/article/details/106227729
 ## webpack优化和配置
 
 https://zh.nuxtjs.org/docs/2.x/configuration-glossary/configuration-build
+
+## nuxt.js使用v-for动态绑定img的src的本地路径，图片不能渲染
+
+https://blog.csdn.net/qq_42231156/article/details/100071551
+

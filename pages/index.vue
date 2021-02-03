@@ -39,6 +39,8 @@
       <el-radio v-model="radio" label="2">
         备选项
       </el-radio>
+      <img :src="img">
+      <img :src="img2">
     </div>
   </div>
 </template>
@@ -103,7 +105,9 @@ export default Vue.extend({
       items: [''],
       timer: 0,
       result: '',
-      radio: '1'
+      radio: '1',
+      img: require('~/assets/Search_normal.png'),
+      img2: require('~/static/Search_normal.png')
     }
   },
   computed: {
