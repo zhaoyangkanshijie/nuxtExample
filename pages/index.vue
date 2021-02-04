@@ -41,6 +41,9 @@
       </el-radio>
       <img :src="img">
       <img :src="img2">
+      <div id="deep">
+        <el-input v-model="input" placeholder="请输入内容" />
+      </div>
     </div>
   </div>
 </template>
@@ -92,11 +95,15 @@ export default Vue.extend({
     const show = ['1', '2', '3', '4', '5', '6']
     this.items = show
   },
-  async asyncData ({ app }) {
+  async asyncData (context) {
     // called every time before loading the component
-    // const response = await app.$axios.get('https://training.tp-link.com.cn/api/values')
+    // const response = await context.app.$axios.get('https://training.tp-link.com.cn/api/values')
     // const result = response.data
-    const result = 'test'
+    let result = 'test'
+    result = await context.app.$requestCache({
+      method: 'get',
+      url: 'https://training.tp-link.com.cn/api/values'
+    })
     return { result }
   },
   data () {
@@ -107,7 +114,8 @@ export default Vue.extend({
       result: '',
       radio: '1',
       img: require('~/assets/Search_normal.png'),
-      img2: require('~/static/Search_normal.png')
+      img2: require('~/static/Search_normal.png'),
+      input: 'a'
     }
   },
   computed: {

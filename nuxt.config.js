@@ -1,5 +1,14 @@
+const LRU = require('lru-cache')
 module.exports = {
   mode: 'universal',
+  render: {
+    bundleRenderer: {
+      cache: new LRU({
+        max: 1000, // 缓存队列长度
+        maxAge: 1000 * 60 // 缓存1分钟
+      })
+    }
+  },
   /*
   ** Headers of the page
   */
@@ -29,7 +38,8 @@ module.exports = {
   */
   plugins: [
     '@/plugins/element-ui',
-    '@/plugins/lib-components'
+    '@/plugins/lib-components',
+    '@/plugins/request-cache'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -80,25 +90,25 @@ module.exports = {
     }
   ],
   build: {
-    // transpile: [/^element-ui/], // babel编译指定模块
-    // // analyze: true,
-    // optimization: {
-    //   minimize: true, // tree-shaking
-    //   splitChunks: {
-    //     chunks: 'all'
-    //   } // 分包
-    // },
-    // parallel: true, // 多线程build，实验属性
-    // sourceMap: false, // 索源文件
-    // collapseBooleanAttributes: true,
-    // decodeEntities: true,
-    // minifyCSS: true,
-    // minifyJS: true,
-    // processConditionalComments: true,
-    // removeEmptyAttributes: true,
-    // removeRedundantAttributes: true,
-    // trimCustomFragments: true,
-    // useShortDoctype: true,
+    transpile: [/^element-ui/, 'request-cache'], // babel编译指定模块
+    // analyze: true,
+    optimization: {
+      minimize: true, // tree-shaking
+      splitChunks: {
+        chunks: 'all'
+      } // 分包
+    },
+    parallel: true, // 多线程build，实验属性
+    sourceMap: false, // 索源文件
+    collapseBooleanAttributes: true,
+    decodeEntities: true,
+    minifyCSS: true,
+    minifyJS: true,
+    processConditionalComments: true,
+    removeEmptyAttributes: true,
+    removeRedundantAttributes: true,
+    trimCustomFragments: true,
+    useShortDoctype: true,
     /*
     ** You can extend webpack config here
     */

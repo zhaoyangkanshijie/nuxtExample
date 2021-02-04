@@ -17,6 +17,15 @@
     </g>
   </svg>
 </template>
+
+<script>
+export default {
+  name: 'Logo',
+  props: ['type'],
+  serverCacheKey: props => props.type
+}
+</script>
+
 <style>
 .NuxtLogo {
   animation: 1s appear;

@@ -8,18 +8,18 @@ export const cachePage = new LRU({
 export default function (req, res, next) {
   const url = req._parsedOriginalUrl
   const pathname = url.pathname
-  console.log('pageCache', pathname)
+  // console.log('pageCache', pathname)
   if (process.env.NODE_ENV !== 'development') {
     const existsHtml = cachePage.get(pathname)
     if (existsHtml) {
-    //  如果没有Content-Type:text/html 的 header，gtmetrix网站无法做测评
+      //  如果没有Content-Type:text/html 的 header，gtmetrix网站无法做测评
       res.setHeader('Content-Type', ' text/html; charset=utf-8')
       return res.end(existsHtml.html, 'utf-8')
     } else {
       res.original_end = res.end
       res.end = function (data) {
         if (res.statusCode === 200) {
-        // 设置缓存
+          // 设置缓存
           cachePage.set(pathname, {
             html: data
           })

@@ -28,3 +28,14 @@
 .links {
     padding-top: 15px;
 }
+
+#deep {
+
+    .el-input{
+        border: 1px solid red;
+
+        /deep/ .el-input__inner{
+            background-color: green;
+        }
+    }
+}

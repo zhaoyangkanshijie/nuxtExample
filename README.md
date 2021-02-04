@@ -73,7 +73,7 @@ npm run build
 
 npm run start 成功后改用pm2
 
-pm2 start npm --name "nuxtExample" -- run start
+pm2 start npm --name "nuxtExample" -- run start --watch
 
 ## Classic mode for store/ is deprecated and will be removed in Nuxt 3.
 
