@@ -101,3 +101,8 @@ https://zh.nuxtjs.org/docs/2.x/configuration-glossary/configuration-build
 
 https://blog.csdn.net/qq_42231156/article/details/100071551
 
+## typescript
+
+https://segmentfault.com/a/1190000011744210
+
+https://blog.csdn.net/sllailcp/article/details/102542796/

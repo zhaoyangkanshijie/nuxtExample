@@ -16,6 +16,7 @@ import nuxt_plugin_axios_ad7e9b50 from 'nuxt_plugin_axios_ad7e9b50' // Source: .
 import nuxt_plugin_elementui_d905880e from 'nuxt_plugin_elementui_d905880e' // Source: ..\\plugins\\element-ui (mode: 'all')
 import nuxt_plugin_libcomponents_e3339b5c from 'nuxt_plugin_libcomponents_e3339b5c' // Source: ..\\plugins\\lib-components (mode: 'all')
 import nuxt_plugin_requestcache_04dbe550 from 'nuxt_plugin_requestcache_04dbe550' // Source: ..\\plugins\\request-cache (mode: 'all')
+import nuxt_plugin_baidu_3fd3d820 from 'nuxt_plugin_baidu_3fd3d820' // Source: ..\\plugins\\baidu.js (mode: 'client')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -62,7 +63,7 @@ async function createApp (ssrContext) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"title":"nuxtExample","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"My groundbreaking Nuxt.js project"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"style":[],"script":[]},
+    head: {"title":"nuxtExample","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"My groundbreaking Nuxt.js project"}],"script":[{"src":"https:\u002F\u002Fhm.baidu.com\u002Fhm.js?***"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"style":[]},
 
     store,
     router,
@@ -191,6 +192,10 @@ async function createApp (ssrContext) {
 
   if (typeof nuxt_plugin_requestcache_04dbe550 === 'function') {
     await nuxt_plugin_requestcache_04dbe550(app.context, inject)
+  }
+
+  if (process.client && typeof nuxt_plugin_baidu_3fd3d820 === 'function') {
+    await nuxt_plugin_baidu_3fd3d820(app.context, inject)
   }
 
   // If server-side, wait for async component to be resolved first
