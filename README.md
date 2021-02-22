@@ -106,3 +106,9 @@ https://blog.csdn.net/qq_42231156/article/details/100071551
 https://segmentfault.com/a/1190000011744210
 
 https://blog.csdn.net/sllailcp/article/details/102542796/
+
+## pdf在线预览
+
+https://blog.csdn.net/weixin_38312502/article/details/105577457
+
+https://www.npmjs.com/package/vue-pdf
