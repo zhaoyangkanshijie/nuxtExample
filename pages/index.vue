@@ -155,6 +155,7 @@ export default Vue.extend({
   },
   created () {
     console.log('created')
+    this.$axios.post('/api/getErr', { err: 'err.stack', hook: 'info' })
   },
   beforeMount () {
     console.log('beforeMount')

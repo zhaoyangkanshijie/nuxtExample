@@ -51,7 +51,8 @@ module.exports = {
     '@/plugins/element-ui',
     '@/plugins/lib-components',
     '@/plugins/request-cache',
-    { src: '@/plugins/baidu.js', ssr: false }
+    { src: '@/plugins/baidu.js', ssr: false },
+    { src: '@/plugins/errorHandler.js', ssr: false }
   ],
   /*
   ** Nuxt.js dev-modules

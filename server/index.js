@@ -2,10 +2,13 @@ const Koa = require('koa')
 const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
 
-const app = new Koa()
+const json = require('koa-json')
+const bodyparser = require('koa-bodyparser')
 
+const app = new Koa()
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
+const getErr = require('../utils/routes/api/getErr.js')
 config.dev = app.env !== 'production'
 
 async function start () {
@@ -23,7 +26,10 @@ async function start () {
     const builder = new Builder(nuxt)
     await builder.build()
   }
-
+  // 必须加入bodyparser、json中间件，才能获取ctx.request.body
+  app.use(bodyparser())
+  app.use(json())
+  app.use(getErr.routes()).use(getErr.allowedMethods())
   app.use((ctx) => {
     ctx.status = 200
     ctx.respond = false // Bypass Koa's built-in response handling

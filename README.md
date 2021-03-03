@@ -112,3 +112,9 @@ https://blog.csdn.net/sllailcp/article/details/102542796/
 https://blog.csdn.net/weixin_38312502/article/details/105577457
 
 https://www.npmjs.com/package/vue-pdf
+
+## nuxt.js项目中全局捕获异常并生成错误日志全过程
+
+https://www.cnblogs.com/xinyan-666/p/9337742.html
+
+https://www.cnblogs.com/antyhouse/p/12553073.html
