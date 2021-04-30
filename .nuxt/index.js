@@ -17,6 +17,7 @@ import nuxt_plugin_elementui_d905880e from 'nuxt_plugin_elementui_d905880e' // S
 import nuxt_plugin_libcomponents_e3339b5c from 'nuxt_plugin_libcomponents_e3339b5c' // Source: ..\\plugins\\lib-components (mode: 'all')
 import nuxt_plugin_requestcache_04dbe550 from 'nuxt_plugin_requestcache_04dbe550' // Source: ..\\plugins\\request-cache (mode: 'all')
 import nuxt_plugin_baidu_3fd3d820 from 'nuxt_plugin_baidu_3fd3d820' // Source: ..\\plugins\\baidu.js (mode: 'client')
+import nuxt_plugin_webconfig_74007295 from 'nuxt_plugin_webconfig_74007295' // Source: ..\\plugins\\webconfig.js (mode: 'client')
 import nuxt_plugin_errorHandler_141a8e21 from 'nuxt_plugin_errorHandler_141a8e21' // Source: ..\\plugins\\errorHandler.js (mode: 'client')
 
 // Component: <ClientOnly>
@@ -64,7 +65,7 @@ async function createApp (ssrContext) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"title":"nuxtExample","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"My groundbreaking Nuxt.js project"}],"script":[{"src":"https:\u002F\u002Fhm.baidu.com\u002Fhm.js?***"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"style":[]},
+    head: {"title":"nuxtExample","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":""}],"script":[{"src":"https:\u002F\u002Fhm.baidu.com\u002Fhm.js?***"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"style":[]},
 
     store,
     router,
@@ -197,6 +198,10 @@ async function createApp (ssrContext) {
 
   if (process.client && typeof nuxt_plugin_baidu_3fd3d820 === 'function') {
     await nuxt_plugin_baidu_3fd3d820(app.context, inject)
+  }
+
+  if (process.client && typeof nuxt_plugin_webconfig_74007295 === 'function') {
+    await nuxt_plugin_webconfig_74007295(app.context, inject)
   }
 
   if (process.client && typeof nuxt_plugin_errorHandler_141a8e21 === 'function') {

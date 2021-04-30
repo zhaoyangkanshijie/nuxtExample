@@ -52,6 +52,7 @@ module.exports = {
     '@/plugins/lib-components',
     '@/plugins/request-cache',
     { src: '@/plugins/baidu.js', ssr: false },
+    { src: '@/plugins/webconfig.js', ssr: false },
     { src: '@/plugins/errorHandler.js', ssr: false }
   ],
   /*

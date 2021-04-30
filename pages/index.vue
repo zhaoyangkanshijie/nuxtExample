@@ -44,6 +44,8 @@
       <div id="deep">
         <el-input v-model="input" placeholder="请输入内容" />
       </div>
+      <p>{{ prefix }}</p>
+      <p>{{ token }}</p>
     </div>
   </div>
 </template>
@@ -130,7 +132,9 @@ export default Vue.extend({
       radio: '1',
       img: require('~/assets/Search_normal.png'),
       img2: require('~/static/Search_normal.png'),
-      input: 'a'
+      input: 'a',
+      prefix: 'test',
+      token: 'token'
     }
   },
   computed: {
@@ -165,6 +169,8 @@ export default Vue.extend({
   },
   mounted () {
     console.log('mounted')
+    this.prefix = (this as any).urlPrefix
+    this.token = this.$store.state.token
   },
   beforeUpdate () {
     console.log('beforeUpdate')
