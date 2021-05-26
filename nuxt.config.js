@@ -76,21 +76,22 @@ module.exports = {
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
+  ** 同时开启axios和proxy可在dev进行代理转发
   */
   axios: {
-    // proxy: true,
-    // prefix: '/api/',
-    // credentials: true
+    proxy: true,
+    // prefix: '/api2/',
+    credentials: true
   },
-  // proxy: {
-  //   '/api/': {
-  //     target: 'https://h5api.zhefengle.cn',//这个网站是开源的可以请求到数据的
-  //     pathRewrite: {
-  //        '^/api/': '/',
-  //        changeOrigin: true
-  //     }
-  //   }
-  // },
+  proxy: {
+    '/api2/': {
+      target: 'http://localhost:7675',
+      pathRewrite: {
+        '^/api2/': '/api/',
+        changeOrigin: true
+      }
+    }
+  },
   /*
   ** Build configuration
   */

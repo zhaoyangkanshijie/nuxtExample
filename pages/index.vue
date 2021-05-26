@@ -171,6 +171,9 @@ export default Vue.extend({
     console.log('mounted')
     this.prefix = (this as any).urlPrefix
     this.token = this.$store.state.token
+    this.$axios.get('/api2/values').then((data) => {
+      console.log(data)
+    })
   },
   beforeUpdate () {
     console.log('beforeUpdate')
